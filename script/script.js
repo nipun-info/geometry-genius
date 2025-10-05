@@ -20,13 +20,58 @@ function calculateTriangle(){
     const triangleHeightInput = document.getElementById('triangle-height');
     const triangleHeightText = triangleHeightInput.value;
     const height = parseFloat(triangleHeightText);
-    console.log(height); 
+    // console.log(height); 
 
     // calculate triangle area
     const area = 0.5 * base * height;
-    console.log(area);
+    // console.log(area);
 
     // display triangle area
     const triangleArea = document.getElementById('triangle-area');
     triangleArea.innerText = area; 
+
+    triangleBaseInput.value = "";
+    triangleHeightInput.value = "";
+}
+
+// rectangle area calculate
+function calculateRectangle(){
+    const rectangleWidthInput = document.getElementById('rectangle-width');
+    const width = parseFloat(rectangleWidthInput.value)
+    console.log(width);
+
+    const rectangleLengthInput = document.getElementById('rectangle-length');
+    const length = parseFloat(rectangleLengthInput.value)
+    console.log(length);
+
+    const area = width * length;
+
+    const rectangleArea = document.getElementById('rectangle-area');
+    rectangleArea.innerText = area;
+
+    rectangleWidthInput.value = "";
+    rectangleLengthInput.value = "";
+  
+}
+
+// Parallelogram 
+function calculateParallelogram(){
+    const base = getInputValueById('parallelogram-base');
+    const height = getInputValueById('parallelogram-height');
+    const area = base * height;
+    // document.getElementById('parallelogram-area').innerText = area; 
+    setInnerTextById('parallelogram-area', area)
+
+}
+
+function getInputValueById(inputFieldId){
+    const inputField = document.getElementById(inputFieldId);
+    const inputValue = parseFloat(inputField.value);
+    inputField.value = '';
+    return inputValue;      
+}
+
+function setInnerTextById(elementId, area){
+    const element = document.getElementById(elementId);
+    element.innerText = area;
 }
